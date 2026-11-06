@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <rect width="400" height="400" fill="#FFE4EE"/>
+  <!-- Hard Shadow -->
+  <ellipse cx="205" cy="335" rx="100" ry="25" fill="#3B1F2B" opacity="0.18"/>
+  <!-- Ice Cream Cup Body -->
+  <g transform="translate(100, 120)">
+    <!-- Cup taper -->
+    <path d="M20,60 L40,200 L160,200 L180,60 Z" fill="#FFFFFF" stroke="#3B1F2B" stroke-width="4"/>
+    <!-- Brand Stripe -->
+    <path d="M26,100 L32,150 L168,150 L174,100 Z" fill="#FF6FA5"/>
+    <path d="M29,120 L31,135 L169,135 L171,120 Z" fill="#D81B60"/>
+    <text x="100" y="132" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="13" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">100ml / 150ml</text>
+    <!-- Scoop topping -->
+    <ellipse cx="100" cy="60" rx="80" ry="30" fill="#FFFFFF" stroke="#3B1F2B" stroke-width="4"/>
+    <path d="M30,55 C30,-10 170,-10 170,55" fill="#FFE08A" stroke="#3B1F2B" stroke-width="4"/>
+    <ellipse cx="100" cy="18" rx="40" ry="15" fill="#FF6FA5" opacity="0.6"/>
+    <!-- Spoon sticker -->
+    <rect x="85" y="-15" width="30" height="20" rx="4" fill="#BFE3C0" stroke="#3B1F2B" stroke-width="3" transform="rotate(-15, 100, -5)"/>
+  </g>
+</svg>

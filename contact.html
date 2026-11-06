@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial RFQ &amp; Bulk Pricing — Pink Ice Cream</title>
+  <meta name="description" content="Request a commercial bulk quote for ice cream supply. We supply distributors, HoReCa, caterers, modern retail chains, and institutions with SLA-backed cold chain.">
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/script.js"></script>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Pink Ice Cream Home">
+        <span class="logo-dot"></span>
+        <span data-brand-name>Pink Ice Cream</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="capacity.html">Capacity &amp; Logistics</a></li>
+          <li><a href="about.html">About &amp; Quality</a></li>
+          <li><a href="contact.html" class="active">Contact &amp; RFQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="quote-badge" aria-label="Open Quote List">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          Quote List <span class="badge-count">0</span>
+        </button>
+
+        <a href="#rfq-form" class="btn btn-primary btn-sm">Get a Bulk Quote</a>
+
+        <button class="menu-toggle" aria-expanded="false" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <nav class="mobile-nav" aria-label="Mobile Navigation">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products &amp; Catalogue</a>
+      <a href="capacity.html">Capacity &amp; Logistics</a>
+      <a href="about.html">About &amp; Quality Certifications</a>
+      <a href="contact.html">Contact &amp; RFQ</a>
+      <a href="#rfq-form" class="btn btn-primary">Request Bulk Quote</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Page Hero Banner -->
+    <section class="page-hero" aria-label="Contact Introduction">
+      <div class="container">
+        <span class="section-label section-label-light">Direct Commercial Procurement</span>
+        <h1>Request for Bulk Quote (RFQ)</h1>
+        <p>
+          Tell us your target volume, product formats, and regional delivery points. An operations procurement manager reviews every submission and responds with tiered pricing within 1 working day.
+          <span class="review-tag">[sample – client to confirm]</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- RFQ Form + Side Info Layout -->
+    <section class="section-pad bg-cream" aria-labelledby="form-heading">
+      <div class="container">
+        <div class="split" style="align-items:start;">
+
+          <!-- RFQ Form Column -->
+          <div>
+            <div class="mb-3">
+              <span class="section-label">Buyer Profile</span>
+              <h2 id="form-heading" style="font-size: clamp(1.8rem, 3.5vw, 2.5rem);">Commercial Specifications</h2>
+              <p style="font-size:0.95rem; margin-top:0.3rem;">Select your commercial buyer category to help us assign the appropriate sales engineer:</p>
+            </div>
+
+            <!-- Buyer Type Chips (Cool Everest style) -->
+            <div class="chip-group" role="group" aria-label="Buyer Type Selection">
+              <button type="button" class="chip-btn selected" data-value="Distributor/Dealer">Distributor / Dealer</button>
+              <button type="button" class="chip-btn" data-value="Retail Chain">Retail Supermarket Chain</button>
+              <button type="button" class="chip-btn" data-value="HoReCa">Hotel / Restaurant / Café</button>
+              <button type="button" class="chip-btn" data-value="Caterer/Events">Caterer / Event Banquet</button>
+              <button type="button" class="chip-btn" data-value="Institution">Corporate Canteen / Institution</button>
+              <button type="button" class="chip-btn" data-value="Franchise">Franchise Seeker</button>
+              <button type="button" class="chip-btn" data-value="Other">Other Commercial Buyer</button>
+            </div>
+
+            <!-- The Form -->
+            <form id="rfq-form" novalidate style="background:#fff; border:2px solid var(--cocoa); border-radius:var(--radius-lg); padding: clamp(1.5rem, 4vw, 2.5rem); box-shadow:var(--shadow-hard);">
+              <input type="hidden" id="buyer-type-input" value="Distributor/Dealer">
+
+              <div class="form-grid">
+                <!-- Company Name -->
+                <div class="form-field">
+                  <label for="rfq-company">Company / Business Name *</label>
+                  <input type="text" id="rfq-company" name="company" placeholder="e.g. Apex Hospitality Group" required>
+                  <span class="field-error" id="error-company">Please enter your company or firm name.</span>
+                </div>
+
+                <!-- Contact Person -->
+                <div class="form-field">
+                  <label for="rfq-contact">Contact Person *</label>
+                  <input type="text" id="rfq-contact" name="contact" placeholder="e.g. Rahul Sharma" required>
+                  <span class="field-error" id="error-contact">Please enter your contact name.</span>
+                </div>
+
+                <!-- Phone / WhatsApp -->
+                <div class="form-field">
+                  <label for="rfq-phone">Phone / WhatsApp Number *</label>
+                  <input type="tel" id="rfq-phone" name="phone" placeholder="e.g. +91 98765 43210" required>
+                  <span class="field-error" id="error-phone">Please enter a valid phone number.</span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-field">
+                  <label for="rfq-email">Business Email *</label>
+                  <input type="email" id="rfq-email" name="email" placeholder="e.g. procurement@company.com" required>
+                  <span class="field-error" id="error-email">Please enter a valid business email.</span>
+                </div>
+
+                <!-- City -->
+                <div class="form-field">
+                  <label for="rfq-city">Destination City *</label>
+                  <input type="text" id="rfq-city" name="city" placeholder="e.g. Mumbai" required>
+                  <span class="field-error" id="error-city">Please specify your destination city.</span>
+                </div>
+
+                <!-- State -->
+                <div class="form-field">
+                  <label for="rfq-state">State / Province *</label>
+                  <input type="text" id="rfq-state" name="state" placeholder="e.g. Maharashtra" required>
+                  <span class="field-error" id="error-state">Please enter state name.</span>
+                </div>
+
+                <!-- Estimated Monthly Volume -->
+                <div class="form-field">
+                  <label for="rfq-volume">Estimated Monthly Volume</label>
+                  <select id="rfq-volume" name="volume">
+                    <option value="500-1000">500 – 1,000 Litres (Pilot Order)</option>
+                    <option value="1000-5000">1,000 – 5,000 Litres / month</option>
+                    <option value="5000-10000" selected>5,000 – 10,000 Litres / month</option>
+                    <option value="10000-25000">10,000 – 25,000 Litres / month</option>
+                    <option value="25000+">25,000+ Litres / month (Contract Fleet)</option>
+                  </select>
+                </div>
+
+                <!-- Delivery Frequency -->
+                <div class="form-field">
+                  <label for="rfq-frequency">Preferred Delivery Cadence</label>
+                  <select id="rfq-frequency" name="frequency">
+                    <option value="daily">Daily Scheduled Drops</option>
+                    <option value="weekly" selected>Weekly Drops (4 drops/month)</option>
+                    <option value="fortnightly">Fortnightly Drops (2 drops/month)</option>
+                    <option value="monthly">Monthly Consolidated Full Truckload</option>
+                  </select>
+                </div>
+
+                <!-- Products of Interest (Checkboxes) -->
+                <div class="form-field full">
+                  <label style="margin-bottom:0.5rem;">Products of Interest (Select All That Apply)</label>
+                  <div class="checkbox-group" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap:0.5rem;">
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="products" value="p-bulk-10l" checked>
+                      <span>10L Catering Mega Tubs</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="products" value="p-bulk-5l" checked>
+                      <span>5L HoReCa Scoop Tubs</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="products" value="p-tub-1000">
+                      <span>1000ml Retail Family Tubs</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="products" value="p-pint-500">
+                      <span>500ml Artisanal Pints</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="products" value="p-cone-crown">
+                      <span>Double-Dip Crown Cones</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="products" value="p-cup-100">
+                      <span>100ml / 150ml Sealed Cups</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="products" value="p-kulfi-malai">
+                      <span>Traditional Kulfi &amp; Matka</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="products" value="p-party-box">
+                      <span>Insulated Party Variety Boxes</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- GST Number (Optional) -->
+                <div class="form-field">
+                  <label for="rfq-gst">GSTIN Number (Optional)</label>
+                  <input type="text" id="rfq-gst" name="gst" placeholder="e.g. 24AAAAA0000A1Z5">
+                </div>
+
+                <!-- Message / Custom Requirements -->
+                <div class="form-field full">
+                  <label for="rfq-message">Specific Requirements / Flavour Mix / Target Delivery Date</label>
+                  <textarea id="rfq-message" name="message" rows="3" placeholder="Include any custom fat percentage requirements, event delivery windows, or special packing instructions..."></textarea>
+                </div>
+              </div>
+
+              <div class="mt-3">
+                <button type="submit" class="btn btn-primary btn-lg" style="width:100%; justify-content:center;">
+                  Submit Commercial RFQ &rarr;
+                </button>
+                <div style="font-size:0.75rem; color:rgba(59,31,43,0.6); text-align:center; margin-top:0.6rem;">
+                  🔒 We respect B2B non-disclosure. Your proprietary requirements will never be shared.
+                </div>
+              </div>
+            </form>
+
+            <!-- Success State -->
+            <div id="form-success" class="form-success" style="background:#fff; border:3px solid var(--mint); border-radius:var(--radius-lg); box-shadow:var(--shadow-hard);">
+              <div class="success-icon">🎉</div>
+              <h3 style="color:var(--cocoa); margin-bottom:0.5rem;">Commercial RFQ Received Successfully!</h3>
+              <p style="margin-inline:auto; max-width:48ch; margin-bottom:1.5rem; color:rgba(59,31,43,0.85);">
+                Thank you. Your enquiry has been registered in our commercial operations ledger. A dedicated sales manager will reach out via WhatsApp/Email within 1 working day with tiered pricing and sample dispatch details.
+                <span class="review-tag">[sample – client to confirm]</span>
+              </p>
+              <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+                <a href="index.html" class="btn btn-primary">Return to Home</a>
+                <a href="products.html" class="btn btn-outline">Explore Products</a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Side Information Column -->
+          <div style="position:sticky; top:6rem;">
+            <div class="contact-info-card mb-3">
+              <span class="section-label">Commercial Desk</span>
+              <h3>Fast-Response Guarantee</h3>
+              <p style="font-size:0.9rem; line-height:1.5; margin-bottom:1.25rem;">
+                "A real person reads every RFQ. We reply within one working day with custom production schedules and freight calculations."
+                <span class="review-tag">[sample – client to confirm]</span>
+              </p>
+
+              <div class="info-row">
+                <div class="info-icon">📍</div>
+                <div>
+                  <div class="info-label">Central Plant &amp; Cold Storage</div>
+                  <div class="info-val" data-config-address>Plot 42, Food Park Phase II, Industrial Area, Gujarat 390001, India <span class="review-tag">[sample]</span></div>
+                </div>
+              </div>
+
+              <div class="info-row">
+                <div class="info-icon">📞</div>
+                <div>
+                  <div class="info-label">Direct Commercial Hotline</div>
+                  <div class="info-val"><span data-config-phone>+91 XXXXX XXXXX</span> <span class="review-tag">[sample]</span></div>
+                </div>
+              </div>
+
+              <div class="info-row">
+                <div class="info-icon">✉️</div>
+                <div>
+                  <div class="info-label">Procurement &amp; Tenders</div>
+                  <div class="info-val"><span data-config-email>supply@pinkicecream.in</span> <span class="review-tag">[sample]</span></div>
+                </div>
+              </div>
+
+              <div class="info-row">
+                <div class="info-icon">⏱️</div>
+                <div>
+                  <div class="info-label">Operating Dispatch Hours</div>
+                  <div class="info-val" data-config-hours>Mon – Sat: 08:00 – 20:00 IST</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tasting Sample Callout -->
+            <div style="background:var(--frost); border:2px solid var(--frost-ink); border-radius:var(--radius-lg); padding:1.5rem; box-shadow:var(--shadow-frost);">
+              <h4 class="text-frost mb-1">Require a Tasting Sample Kit?</h4>
+              <p class="text-frost mb-2" style="font-size:0.85rem; line-height:1.5;">
+                We dispatch insulated dry-ice sample packs with 6 signature commercial flavours directly to executive chefs and purchase directors.
+              </p>
+              <a href="#rfq-form" class="btn btn-outline btn-sm" style="border-color:var(--frost-ink); color:var(--frost-ink);">Request Sample Kit &rarr;</a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-dot"></span>
+            <span data-brand-name>Pink Ice Cream</span>
+          </a>
+          <p>
+            Industrial ice cream manufacturer &amp; cold-chain distribution network. Delivering consistency, volume security, and premium dairy quality to commercial partners across India.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Product Range</a></li>
+            <li><a href="capacity.html">Capacity &amp; Fleet</a></li>
+            <li><a href="about.html">About &amp; Certifications</a></li>
+            <li><a href="contact.html">RFQ &amp; Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Commercial</h4>
+          <ul>
+            <li><a href="products.html#bulk">Bulk Catering 5L &amp; 10L</a></li>
+            <li><a href="capacity.html#coverage">Distribution Hubs</a></li>
+            <li><a href="about.html#quality">Quality &amp; Lab Standards</a></li>
+            <li><a href="contact.html#sample-request">Request Tasting Kit</a></li>
+            <li><a href="contact.html#dealer">Become a Distributor</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Headquarters</h4>
+          <p style="font-size: 0.88rem; line-height: 1.5; margin-bottom: 0.5rem;" data-config-address>
+            Plot 42, Food Park Phase II, Industrial Area, Gujarat 390001, India
+            <span class="review-tag">[sample – client to confirm]</span>
+          </p>
+          <p style="font-size: 0.85rem; margin-bottom: 0.3rem;">Phone: <span data-config-phone>+91 XXXXX XXXXX</span> <span class="review-tag">[sample]</span></p>
+          <p style="font-size: 0.85rem; margin-bottom: 0.3rem;">Email: <span data-config-email>supply@pinkicecream.in</span> <span class="review-tag">[sample]</span></p>
+          <p style="font-size: 0.85rem;" data-config-hours>Mon – Sat: 08:00 – 20:00 IST</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 <span data-brand-name>Pink Ice Cream</span> Ltd. Commercial Supply Division. All rights reserved.</div>
+        <div class="concept-note">Images are concept visuals for design preview. Replace with real photos before launch.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Button & Dialog -->
+  <button id="whatsapp-float-btn" class="whatsapp-float" aria-label="Contact us on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.08c-1.49 0-2.95-.4-4.22-1.16l-.3-.18-3.13.82.84-3.05-.2-.31a8.13 8.13 0 0 1-1.25-4.29c0-4.51 3.67-8.18 8.18-8.18 2.19 0 4.24.85 5.79 2.4 1.54 1.55 2.4 3.6 2.4 5.79 0 4.51-3.67 8.18-8.18 8.18zm4.49-6.13c-.25-.12-1.46-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.65.81-.8 1-.15.19-.3.21-.55.08-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.73-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.08 0 1.23.9 2.42 1.02 2.59.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.59.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/>
+    </svg>
+  </button>
+  <div id="wa-dialog" class="wa-dialog" role="dialog" aria-modal="true" aria-labelledby="wa-modal-title">
+    <div class="wa-dialog-box">
+      <button id="wa-dialog-close" class="wa-dialog-close" aria-label="Close dialog">&times;</button>
+      <h3 id="wa-modal-title">WhatsApp Commercial Desk</h3>
+      <p style="font-size:0.9rem; margin-bottom: 0.75rem; color: rgba(59,31,43,0.7);">
+        Direct WhatsApp enquiry regarding bulk quote:
+      </p>
+      <div id="wa-message-text" class="wa-message-box"></div>
+      <div class="wa-dialog-actions">
+        <button id="wa-copy-btn" class="btn btn-primary btn-sm">Copy Message</button>
+        <button onclick="document.getElementById('wa-dialog').classList.remove('open')" class="btn btn-outline btn-sm">Close</button>
+      </div>
+      <div class="wa-note">
+        Set client sales WhatsApp number in <code>CONFIG.whatsappNumber</code>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Quote Drawer -->
+  <aside id="quote-panel" class="quote-panel" aria-label="Quote List Drawer">
+    <div class="quote-panel-header">
+      <h3>Your Commercial Quote List</h3>
+      <button id="quote-panel-close" class="quote-panel-close" aria-label="Close Quote Panel">&times;</button>
+    </div>
+    <div id="quote-panel-items" class="quote-panel-body"></div>
+    <div class="quote-panel-footer">
+      <button id="quote-checkout-btn" class="btn btn-primary" style="width:100%; justify-content:center;">
+        Update RFQ With Selected Items &rarr;
+      </button>
+    </div>
+  </aside>
+
+</body>
+</html>

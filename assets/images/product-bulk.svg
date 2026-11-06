@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <rect width="400" height="400" fill="#FFF8F3"/>
+  <!-- Shadow -->
+  <ellipse cx="200" cy="350" rx="120" ry="24" fill="#3B1F2B" opacity="0.18"/>
+  <g transform="translate(85, 90)">
+    <!-- Back Tub (10L) -->
+    <path d="M50,110 L65,220 L165,220 L180,110 Z" fill="#E3F4FA" stroke="#0E4A6B" stroke-width="4"/>
+    <ellipse cx="115" cy="110" rx="65" ry="18" fill="#FFFFFF" stroke="#0E4A6B" stroke-width="4"/>
+    <ellipse cx="115" cy="110" rx="55" ry="14" fill="#FF6FA5"/>
+    <rect x="70" y="145" width="90" height="30" rx="4" fill="#0E4A6B"/>
+    <text x="115" y="165" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="12" fill="#FFFFFF" text-anchor="middle">10 LITRES BULK</text>
+
+    <!-- Front Tub (5L) Stacked / Offset -->
+    <g transform="translate(45, 45)">
+      <path d="M30,100 L45,190 L135,190 L150,100 Z" fill="#FFE4EE" stroke="#3B1F2B" stroke-width="4"/>
+      <ellipse cx="90" cy="100" rx="60" ry="16" fill="#FFFFFF" stroke="#3B1F2B" stroke-width="4"/>
+      <ellipse cx="90" cy="100" rx="50" ry="12" fill="#D81B60"/>
+      <!-- Commercial Handle -->
+      <path d="M26,115 C20,90 160,90 154,115" stroke="#3B1F2B" stroke-width="4" fill="none"/>
+      <!-- Catering Label -->
+      <rect x="52" y="130" width="76" height="26" rx="3" fill="#FFE08A" stroke="#3B1F2B" stroke-width="2"/>
+      <text x="90" y="148" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="11" fill="#3B1F2B" text-anchor="middle">5L CATERING</text>
+    </g>
+  </g>
+</svg>
