@@ -1,12 +1,5 @@
-/* ============================================================
-   Pink Ice Cream — B2B Website Styles
-   Mobile-first, plain CSS, no frameworks
-   ============================================================ */
-
-/* ── Google Fonts ── */
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
 
-/* ── Design Tokens ── */
 :root {
   --pink:       #FF6FA5;
   --pink-ink:   #D81B60;
@@ -35,7 +28,6 @@
   --gap:         clamp(1.5rem, 4vw, 3rem);
 }
 
-/* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
@@ -51,7 +43,6 @@ a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 button { cursor: pointer; font-family: inherit; border: none; background: none; }
 
-/* ── Typography ── */
 h1, h2, h3, h4, h5 {
   font-family: var(--font-display);
   font-weight: 800;
@@ -64,7 +55,6 @@ h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
 h4 { font-size: clamp(1.1rem, 1.8vw, 1.5rem); }
 p  { max-width: 68ch; }
 
-/* ── Layout helpers ── */
 .container {
   width: 100%;
   max-width: var(--container);
@@ -77,7 +67,6 @@ p  { max-width: 68ch; }
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
 }
 
-/* ── Buttons ── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -128,7 +117,6 @@ p  { max-width: 68ch; }
 .btn-sm { padding: .5rem 1.25rem; font-size: .9rem; min-height: 40px; }
 .btn-lg { padding: 1rem 2.25rem; font-size: 1.1rem; min-height: 56px; }
 
-/* ── Quote counter badge ── */
 #quote-badge {
   display: inline-flex;
   align-items: center;
@@ -155,9 +143,6 @@ p  { max-width: 68ch; }
   display: flex; align-items: center; justify-content: center;
 }
 
-/* ════════════════════════════════════════════════════════════
-   HEADER / NAV
-   ════════════════════════════════════════════════════════════ */
 .site-header {
   position: sticky;
   top: 0;
@@ -225,7 +210,6 @@ p  { max-width: 68ch; }
 
 .header-actions { display: flex; align-items: center; gap: .75rem; }
 
-/* Mobile menu */
 .menu-toggle {
   display: flex;
   flex-direction: column;
@@ -274,9 +258,6 @@ p  { max-width: 68ch; }
   .menu-toggle { display: none; }
 }
 
-/* ════════════════════════════════════════════════════════════
-   SVG DIVIDERS
-   ════════════════════════════════════════════════════════════ */
 .wave-divider {
   display: block;
   width: 100%;
@@ -285,9 +266,6 @@ p  { max-width: 68ch; }
 }
 .wave-divider svg { display: block; width: 100%; }
 
-/* ════════════════════════════════════════════════════════════
-   HERO
-   ════════════════════════════════════════════════════════════ */
 .hero {
   position: relative;
   min-height: 92vh;
@@ -391,9 +369,6 @@ p  { max-width: 68ch; }
   padding: .5rem;
 }
 
-/* ════════════════════════════════════════════════════════════
-   CAPACITY STRIP / STAT COUNTERS
-   ════════════════════════════════════════════════════════════ */
 .capacity-strip {
   background: var(--pink);
   border-top: 3px solid var(--cocoa);
@@ -430,9 +405,6 @@ p  { max-width: 68ch; }
   font-size: 1.2rem;
 }
 
-/* ════════════════════════════════════════════════════════════
-   MARQUEE
-   ════════════════════════════════════════════════════════════ */
 .marquee-band {
   background: var(--cocoa);
   border-top: 2px solid rgba(255,255,255,.1);
@@ -468,9 +440,6 @@ p  { max-width: 68ch; }
   opacity: .8;
 }
 
-/* ════════════════════════════════════════════════════════════
-   VOLUME TOOL
-   ════════════════════════════════════════════════════════════ */
 .volume-tool {
   background: var(--frost);
   border: 3px solid var(--frost-ink);
@@ -537,7 +506,6 @@ p  { max-width: 68ch; }
 }
 @media (min-width: 768px) { .tool-output { grid-template-columns: auto 1fr; align-items: center; } }
 
-/* Ring */
 .capacity-ring-wrap {
   display: flex;
   flex-direction: column;
@@ -621,7 +589,6 @@ p  { max-width: 68ch; }
 }
 .tool-actions { margin-top: 1.25rem; display: flex; gap: .75rem; flex-wrap: wrap; }
 
-/* review tags */
 .review-tag {
   display: none;
   font-size: .7rem;
@@ -637,9 +604,6 @@ p  { max-width: 68ch; }
 }
 body.review-mode .review-tag { display: inline-block; }
 
-/* ════════════════════════════════════════════════════════════
-   HOW SUPPLY WORKS — TIMELINE
-   ════════════════════════════════════════════════════════════ */
 .supply-timeline {
   position: relative;
   padding-top: 2rem;
@@ -715,9 +679,6 @@ body.review-mode .review-tag { display: inline-block; }
   .step-num { margin-bottom: 0; flex-shrink: 0; }
 }
 
-/* ════════════════════════════════════════════════════════════
-   WHO WE SUPPLY
-   ════════════════════════════════════════════════════════════ */
 .industry-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -780,9 +741,6 @@ body.review-mode .review-tag { display: inline-block; }
   opacity: 1;
 }
 
-/* ════════════════════════════════════════════════════════════
-   PRODUCT TABS
-   ════════════════════════════════════════════════════════════ */
 .tabs-nav {
   display: flex;
   gap: .5rem;
@@ -860,9 +818,6 @@ body.review-mode .review-tag { display: inline-block; }
 }
 .product-card .btn { margin-top: auto; width: 100%; justify-content: center; }
 
-/* ════════════════════════════════════════════════════════════
-   COLD CHAIN BLOCK
-   ════════════════════════════════════════════════════════════ */
 .cold-chain-grid {
   display: grid;
   gap: 1.5rem;
@@ -912,9 +867,6 @@ body.review-mode .review-tag { display: inline-block; }
   font-size: 1.1rem;
 }
 
-/* ════════════════════════════════════════════════════════════
-   GALLERY (SMOOTH MOVING MARQUEE SHOWCASE & LIGHTBOX)
-   ════════════════════════════════════════════════════════════ */
 .gallery-section {
   position: relative;
   overflow: hidden;
@@ -925,7 +877,7 @@ body.review-mode .review-tag { display: inline-block; }
   position: relative;
   overflow: hidden;
   padding-block: 0.5rem;
-  /* Soft fade gradient mask on sides so cards glide in/out seamlessly */
+
   mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
 }
@@ -1040,7 +992,6 @@ body.review-mode .review-tag { display: inline-block; }
   border: 1.5px solid #fff;
 }
 
-/* Fallback legacy .gallery-grid if ever called */
 .gallery-grid {
   display: flex;
   gap: 1.5rem;
@@ -1082,7 +1033,6 @@ body.review-mode .review-tag { display: inline-block; }
 .gallery-item:hover .gallery-item-overlay,
 .gallery-item:focus .gallery-item-overlay { opacity: 1; }
 
-/* Lightbox */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -1132,9 +1082,6 @@ body.review-mode .review-tag { display: inline-block; }
 }
 .lightbox-nav button:hover { background: var(--pink-ink); }
 
-/* ════════════════════════════════════════════════════════════
-   TESTIMONIALS
-   ════════════════════════════════════════════════════════════ */
 .testimonials-track {
   display: flex;
   gap: 1.5rem;
@@ -1178,9 +1125,6 @@ body.review-mode .review-tag { display: inline-block; }
   letter-spacing: .06em;
 }
 
-/* ════════════════════════════════════════════════════════════
-   FAQ ACCORDION
-   ════════════════════════════════════════════════════════════ */
 .faq-list { display: flex; flex-direction: column; gap: .75rem; }
 .faq-item {
   border: 2px solid var(--cocoa);
@@ -1227,9 +1171,6 @@ body.review-mode .review-tag { display: inline-block; }
   border-top: 1.5px solid rgba(59,31,43,.15);
 }
 
-/* ════════════════════════════════════════════════════════════
-   CTA BAND
-   ════════════════════════════════════════════════════════════ */
 .cta-band {
   background: var(--pink);
   border-top: 3px solid var(--cocoa);
@@ -1255,9 +1196,6 @@ body.review-mode .review-tag { display: inline-block; }
 .cta-band p { color: var(--cocoa); opacity: .75; margin-bottom: 2rem; margin-inline: auto; }
 .cta-band .btn-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-/* ════════════════════════════════════════════════════════════
-   FOOTER
-   ════════════════════════════════════════════════════════════ */
 .site-footer {
   background: var(--cocoa);
   color: rgba(255,255,255,.75);
@@ -1305,9 +1243,6 @@ body.review-mode .review-tag { display: inline-block; }
   color: rgba(255,255,255,.35);
 }
 
-/* ════════════════════════════════════════════════════════════
-   FLOATING WHATSAPP
-   ════════════════════════════════════════════════════════════ */
 .whatsapp-float {
   position: fixed;
   bottom: 1.75rem;
@@ -1327,7 +1262,6 @@ body.review-mode .review-tag { display: inline-block; }
 .whatsapp-float:hover { transform: translate(-2px,-2px) scale(1.07); box-shadow: 8px 8px 0 var(--cocoa); }
 .whatsapp-float:focus-visible { outline: 3px solid var(--butter); outline-offset: 3px; }
 
-/* WA dialog */
 .wa-dialog {
   position: fixed;
   inset: 0;
@@ -1375,9 +1309,6 @@ body.review-mode .review-tag { display: inline-block; }
   cursor: pointer;
 }
 
-/* ════════════════════════════════════════════════════════════
-   QUOTE SIDE PANEL
-   ════════════════════════════════════════════════════════════ */
 .quote-panel {
   position: fixed;
   top: 0; right: 0;
@@ -1447,9 +1378,6 @@ body.review-mode .review-tag { display: inline-block; }
 }
 .quote-item-remove:hover { background: rgba(216,27,96,.08); }
 
-/* ════════════════════════════════════════════════════════════
-   RFQ FORM
-   ════════════════════════════════════════════════════════════ */
 .chip-group {
   display: flex;
   flex-wrap: wrap;
@@ -1533,7 +1461,6 @@ body.review-mode .review-tag { display: inline-block; }
   border-radius: 3px;
 }
 
-/* Success state */
 .form-success {
   display: none;
   text-align: center;
@@ -1544,7 +1471,7 @@ body.review-mode .review-tag { display: inline-block; }
   font-size: 3rem;
   margin-bottom: 1rem;
 }
-/* sprinkle canvas */
+
 #sprinkle-canvas {
   position: fixed;
   inset: 0;
@@ -1553,9 +1480,6 @@ body.review-mode .review-tag { display: inline-block; }
   display: none;
 }
 
-/* ════════════════════════════════════════════════════════════
-   CAPACITY PAGE — SUPPLY CHAIN DIAGRAM
-   ════════════════════════════════════════════════════════════ */
 .supply-chain-diagram {
   background: var(--cream);
   border: 2px solid var(--cocoa);
@@ -1632,9 +1556,6 @@ body.review-mode .review-tag { display: inline-block; }
 .chain-arrow.lit .chain-arrow-fill { width: 100%; }
 .chain-arrow.lit .chain-dot { opacity: 1; }
 
-/* ════════════════════════════════════════════════════════════
-   INDIA MAP
-   ════════════════════════════════════════════════════════════ */
 .coverage-wrap {
   display: grid;
   gap: 2rem;
@@ -1678,9 +1599,6 @@ body.review-mode .review-tag { display: inline-block; }
 }
 .lead-time-table td:last-child { font-weight: 600; }
 
-/* ════════════════════════════════════════════════════════════
-   ABOUT PAGE
-   ════════════════════════════════════════════════════════════ */
 .milestones {
   position: relative;
   display: flex;
@@ -1719,9 +1637,6 @@ body.review-mode .review-tag { display: inline-block; }
 }
 .milestone-text { font-size: .92rem; color: var(--cocoa); }
 
-/* ════════════════════════════════════════════════════════════
-   SCROLL REVEAL
-   ════════════════════════════════════════════════════════════ */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -1733,12 +1648,8 @@ body.review-mode .review-tag { display: inline-block; }
 .reveal-delay-3 { transition-delay: 300ms; }
 .reveal-delay-4 { transition-delay: 400ms; }
 
-/* Parallax images */
 .parallax-img { transition: transform 0ms; will-change: transform; }
 
-/* ════════════════════════════════════════════════════════════
-   SECTION COLOUR BLOCKS
-   ════════════════════════════════════════════════════════════ */
 .bg-cream  { background: var(--cream); }
 .bg-pink   { background: var(--pink); }
 .bg-blush  { background: var(--blush); }
@@ -1749,9 +1660,6 @@ body.review-mode .review-tag { display: inline-block; }
 .text-white { color: #fff; }
 .text-frost { color: var(--frost-ink); }
 
-/* ════════════════════════════════════════════════════════════
-   SPLIT LAYOUTS
-   ════════════════════════════════════════════════════════════ */
 .split {
   display: grid;
   gap: clamp(2rem, 5vw, 4rem);
@@ -1778,7 +1686,6 @@ body.review-mode .review-tag { display: inline-block; }
 }
 .offset-img img { width: 100%; display: block; }
 
-/* Page hero (inner pages) */
 .page-hero {
   background: var(--cocoa);
   padding-block: clamp(3.5rem, 8vw, 6rem);
@@ -1799,9 +1706,6 @@ body.review-mode .review-tag { display: inline-block; }
 .page-hero h1 { color: #fff; margin-bottom: 1rem; }
 .page-hero p { color: rgba(255,255,255,.75); font-size: 1.15rem; max-width: 54ch; }
 
-/* ════════════════════════════════════════════════════════════
-   CONTACT SIDE INFO
-   ════════════════════════════════════════════════════════════ */
 .contact-info-card {
   background: var(--blush);
   border: 2px solid var(--cocoa);
@@ -1828,9 +1732,6 @@ body.review-mode .review-tag { display: inline-block; }
 .info-label { font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: rgba(59,31,43,.5); }
 .info-val { font-size: .95rem; font-weight: 500; }
 
-/* ════════════════════════════════════════════════════════════
-   PREFERS-REDUCED-MOTION
-   ════════════════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -1844,18 +1745,12 @@ body.review-mode .review-tag { display: inline-block; }
   .parallax-img { transform: none !important; }
 }
 
-/* ════════════════════════════════════════════════════════════
-   FOCUS / KEYBOARD
-   ════════════════════════════════════════════════════════════ */
 :focus-visible {
   outline: 3px solid var(--pink-ink);
   outline-offset: 3px;
 }
 a:focus-visible { outline-color: var(--pink-ink); }
 
-/* ════════════════════════════════════════════════════════════
-   UTILITY
-   ════════════════════════════════════════════════════════════ */
 .mt-1 { margin-top: .5rem; }
 .mt-2 { margin-top: 1rem; }
 .mt-3 { margin-top: 1.5rem; }
@@ -1878,9 +1773,6 @@ a:focus-visible { outline-color: var(--pink-ink); }
 .section-label-light { color: rgba(255,255,255,.55); }
 .section-label-frost { color: var(--frost-ink); opacity: .7; }
 
-/* ════════════════════════════════════════════════════════════
-   RETAIL VELOCITY / CONSUMER APPEAL COLLAGE
-   ════════════════════════════════════════════════════════════ */
 .consumer-split {
   display: grid;
   gap: clamp(2.5rem, 5vw, 4.5rem);

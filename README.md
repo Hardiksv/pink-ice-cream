@@ -35,7 +35,7 @@ const CONFIG = {
   phone: '+91 XXXXX XXXXX',
   email: 'supply@pinkicecream.in',
   address: 'Plot 42, Food Park Phase II, Industrial Area, Gujarat 390001, India',
-  whatsappNumber: '', // Put international number without plus (e.g. '919876543210')
+  whatsappNumber: '',
   capacity: {
     monthlyLitres: 600000,
     dailyLitres: 20000,

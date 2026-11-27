@@ -1,19 +1,12 @@
-/**
- * Pink Ice Cream — B2B Supplier Website Core JavaScript
- * Plain vanilla JS, no frameworks, file:// compatible.
- */
-
-// Set brand name once here as requested
 const BRAND_NAME = 'Pink Ice Cream';
 
-// Central configuration for all unverified placeholder values
 const CONFIG = {
   brandName: BRAND_NAME,
   tagline: 'Bulk ice cream, delivered cold.',
   phone: '+91 XXXXX XXXXX',
   email: 'supply@pinkicecream.in',
   address: 'Plot 42, Food Park Phase II, Industrial Area, Gujarat 390001, India',
-  whatsappNumber: '', // Empty placeholder. Triggers modal dialog when clicked.
+  whatsappNumber: '',
   hours: 'Mon – Sat: 08:00 – 20:00 IST',
   capacity: {
     monthlyLitres: 600000,
@@ -34,17 +27,14 @@ const CONFIG = {
   haccpCert: 'HACCP Food Safety Certified'
 };
 
-/* ── DOM Helper ── */
 const $ = (selector, context = document) => context.querySelector(selector);
 const $$ = (selector, context = document) => Array.from(context.querySelectorAll(selector));
 
-/* ── State ── */
 const state = {
   quoteList: JSON.parse(localStorage.getItem('pink_ice_cream_quote') || '[]'),
   reviewMode: false
 };
 
-/* ── Check ?review=1 Mode ── */
 function initReviewMode() {
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('review') === '1') {
@@ -53,7 +43,6 @@ function initReviewMode() {
   }
 }
 
-/* ── Brand Name & Config Text Replacements ── */
 function applyBrandText() {
   $$('[data-brand-name]').forEach(el => el.textContent = BRAND_NAME);
   $$('[data-config-phone]').forEach(el => el.textContent = CONFIG.phone);
@@ -62,7 +51,6 @@ function applyBrandText() {
   $$('[data-config-address]').forEach(el => el.textContent = CONFIG.address);
 }
 
-/* ── Sticky Header Shrink ── */
 function initHeader() {
   const header = $('.site-header');
   if (!header) return;
@@ -77,7 +65,6 @@ function initHeader() {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Mobile menu toggle
   const toggle = $('.menu-toggle');
   const mobileNav = $('.mobile-nav');
   if (toggle && mobileNav) {
@@ -101,12 +88,10 @@ function initHeader() {
   }
 }
 
-/* ── Hero Headline Word Reveal Animation ── */
 function initHeroAnimation() {
   const words = $$('.hero-word');
   if (!words.length) return;
 
-  // Stagger reveal
   words.forEach((word, index) => {
     setTimeout(() => {
       word.classList.add('revealed');
@@ -114,7 +99,6 @@ function initHeroAnimation() {
   });
 }
 
-/* ── Scroll Reveal (IntersectionObserver) ── */
 function initScrollReveal() {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReduced) {
@@ -134,7 +118,6 @@ function initScrollReveal() {
   $$('.reveal').forEach(el => observer.observe(el));
 }
 
-/* ── Count-up Numbers ── */
 function initCounters() {
   const counters = $$('[data-count]');
   if (!counters.length) return;
@@ -155,7 +138,7 @@ function initCounters() {
     const step = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // easeOutExpo
+
       const current = Math.floor(progress === 1 ? target : target * (1 - Math.pow(2, -10 * progress)));
       el.textContent = current.toLocaleString('en-IN');
       if (progress < 1) {
@@ -179,7 +162,6 @@ function initCounters() {
   counters.forEach(c => observer.observe(c));
 }
 
-/* ── How Supply Works: Timeline Line Drawing on Scroll ── */
 function initSupplyTimeline() {
   const timeline = $('.supply-timeline');
   if (!timeline) return;
@@ -204,7 +186,6 @@ function initSupplyTimeline() {
   observer.observe(timeline);
 }
 
-/* ── Supply Chain Travel Line (Capacity Page) ── */
 function initSupplyChainDiagram() {
   const diagram = $('.supply-chain-diagram');
   if (!diagram) return;
@@ -231,7 +212,6 @@ function initSupplyChainDiagram() {
   observer.observe(diagram);
 }
 
-/* ── "Can we handle your volume?" Calculator Tool ── */
 function initVolumeTool() {
   const tool = $('.volume-tool');
   if (!tool) return;
@@ -251,9 +231,9 @@ function initVolumeTool() {
 
   if (!rangeInput || !numberInput) return;
 
-  const maxCapacity = CONFIG.capacity.monthlyLitres; // 600,000 L
-  const truckSize = CONFIG.capacity.truckLitres; // 3,000 L
-  const circumference = 339.29; // 2 * PI * 54
+  const maxCapacity = CONFIG.capacity.monthlyLitres;
+  const truckSize = CONFIG.capacity.truckLitres;
+  const circumference = 339.29;
 
   function update() {
     let volume = parseInt(rangeInput.value, 10);
@@ -322,7 +302,7 @@ function initVolumeTool() {
       const vol = rangeInput.value;
       const freq = frequencySelect ? frequencySelect.value : 'weekly';
       const dist = distanceSelect ? distanceSelect.value : 'local';
-      // Store in sessionStorage to prefill contact form
+
       sessionStorage.setItem('rfq_prefill', JSON.stringify({
         volume: vol,
         frequency: freq,
@@ -333,7 +313,6 @@ function initVolumeTool() {
   }
 }
 
-/* ── Product Tabs Filter ── */
 function initProductTabs() {
   const tabs = $$('.tab-btn');
   const panels = $$('.tab-panel');
@@ -360,7 +339,6 @@ function initProductTabs() {
   });
 }
 
-/* ── Quote List State & Side Panel ── */
 function initQuoteList() {
   const quoteBadge = $('#quote-badge');
   const badgeCount = $('.badge-count');
@@ -438,7 +416,6 @@ function initQuoteList() {
     }
   });
 
-  // Delegate "Add to quote list" buttons
   document.addEventListener('click', (e) => {
     const addBtn = e.target.closest('.add-quote-btn');
     if (!addBtn) return;
@@ -456,7 +433,6 @@ function initQuoteList() {
 
     updateBadge();
 
-    // Visual button feedback
     const originalText = addBtn.innerHTML;
     addBtn.innerHTML = '✓ Added to Quote';
     addBtn.style.background = 'var(--mint)';
@@ -478,7 +454,6 @@ function initQuoteList() {
   updateBadge();
 }
 
-/* ── FAQ Accordion Keyboard & Toggle ── */
 function initFaq() {
   const faqItems = $$('.faq-item');
   faqItems.forEach(item => {
@@ -498,7 +473,6 @@ function initFaq() {
   });
 }
 
-/* ── Gallery Lightbox ── */
 function initLightbox() {
   const lightbox = $('#lightbox');
   const lbImg = $('#lightbox-img');
@@ -561,7 +535,6 @@ function initLightbox() {
   });
 }
 
-/* ── WhatsApp Floating Button & Modal Logic ── */
 function initWhatsApp() {
   const waBtn = $('#whatsapp-float-btn');
   const waDialog = $('#wa-dialog');
@@ -583,7 +556,7 @@ function initWhatsApp() {
       const msg = encodeURIComponent(buildMessage());
       window.open(`https://wa.me/${CONFIG.whatsappNumber}?text=${msg}`, '_blank');
     } else {
-      // Show modal dialog
+
       if (waMsgText) waMsgText.textContent = buildMessage();
       waDialog.classList.add('open');
       if (waClose) waClose.focus();
@@ -612,12 +585,10 @@ function initWhatsApp() {
   }
 }
 
-/* ── RFQ Form Logic (Contact Page) ── */
 function initRfqForm() {
   const form = $('#rfq-form');
   if (!form) return;
 
-  // Buyer chips toggle
   const chips = $$('.chip-btn', form);
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
@@ -628,14 +599,13 @@ function initRfqForm() {
     });
   });
 
-  // Prefill from Volume Tool or Quote List
   const prefillRaw = sessionStorage.getItem('rfq_prefill');
   if (prefillRaw) {
     try {
       const prefill = JSON.parse(prefillRaw);
       const volSelect = $('#rfq-volume');
       if (volSelect && prefill.volume) {
-        // Find nearest range or set in note
+
         volSelect.value = prefill.volume >= 10000 ? '10000+' : (prefill.volume >= 5000 ? '5000-10000' : '1000-5000');
       }
       const freqSelect = $('#rfq-frequency');
@@ -646,7 +616,6 @@ function initRfqForm() {
     }
   }
 
-  // Prefill product checkboxes from quoteList
   if (state.quoteList.length > 0) {
     const productCheckboxes = $$('input[name="products"]', form);
     const quoteProductIds = state.quoteList.map(i => i.id);
@@ -655,7 +624,6 @@ function initRfqForm() {
     });
   }
 
-  // Inline Validation & Submit
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     let hasError = false;
@@ -690,7 +658,6 @@ function initRfqForm() {
 
     if (hasError) return;
 
-    // Build payload
     const buyerType = $('#buyer-type-input') ? $('#buyer-type-input').value : 'Distributor';
     const checkedProducts = $$('input[name="products"]:checked', form).map(cb => cb.value);
     const formData = {
@@ -709,13 +676,11 @@ function initRfqForm() {
       timestamp: new Date().toISOString()
     };
 
-    // Save to localStorage & console.log as required
     const existingQuotes = JSON.parse(localStorage.getItem('pink_ice_cream_rfqs') || '[]');
     existingQuotes.push(formData);
     localStorage.setItem('pink_ice_cream_rfqs', JSON.stringify(existingQuotes));
     console.log('[Pink Ice Cream] New RFQ Received:', formData);
 
-    // Show success state with confetti sprinkle
     form.style.display = 'none';
     const successEl = $('#form-success');
     if (successEl) successEl.classList.add('show');
@@ -723,7 +688,6 @@ function initRfqForm() {
   });
 }
 
-/* ── Lightweight Confetti Sprinkle Canvas ── */
 function launchSprinkles() {
   const canvas = document.createElement('canvas');
   canvas.id = 'sprinkle-canvas';
@@ -775,7 +739,6 @@ function launchSprinkles() {
   requestAnimationFrame(draw);
 }
 
-/* ── Global Init on DOM Ready ── */
 document.addEventListener('DOMContentLoaded', () => {
   initReviewMode();
   applyBrandText();
