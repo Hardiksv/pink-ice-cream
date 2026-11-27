@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Your Enquiry — Pink Ice Cream B2B</title>
+  <meta name="description" content="Submit your commercial ice cream enquiry. Retail or Bulk / HORECA — our sales team responds within 24 hours.">
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/script.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Pink Ice Cream Home">
+        <span class="logo-dot"></span>
+        <span data-brand-name>Pink Ice Cream</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="capacity.html">Capacity &amp; Logistics</a></li>
+          <li><a href="about.html">About &amp; Quality</a></li>
+          <li><a href="contact.html">Contact &amp; RFQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="quote-badge" aria-label="Open Quote List">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          Quote List <span class="badge-count">0</span>
+        </button>
+
+        <a href="contact.html#rfq-form" class="btn btn-primary btn-sm">Get a Bulk Quote</a>
+
+        <button class="menu-toggle" aria-expanded="false" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Mobile Navigation">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products &amp; Catalogue</a>
+      <a href="capacity.html">Capacity &amp; Logistics</a>
+      <a href="about.html">About &amp; Quality Certifications</a>
+      <a href="contact.html">Contact &amp; RFQ</a>
+      <a href="contact.html#rfq-form" class="btn btn-primary">Request Bulk Quote</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <section class="page-hero" aria-label="Enquiry Form">
+      <div class="container">
+        <span class="section-label section-label-light">Commercial Enquiry</span>
+        <h1>Submit Your Enquiry</h1>
+        <p>Tell us about your business and product interests. No pricing is committed at this stage — our team will respond with a tailored commercial proposal within 24–48 hours.</p>
+      </div>
+    </section>
+
+    <section class="section-pad bg-cream" aria-label="Enquiry Submission Form">
+      <div class="container" style="max-width:760px;">
+
+        <form id="enquiry-form" novalidate>
+
+          <div style="margin-bottom:2rem;">
+            <p class="enq-label" style="margin-bottom:.75rem; font-weight:700;">Enquiry Type</p>
+            <div style="display:flex; gap:.75rem; flex-wrap:wrap;">
+              <button type="button" class="order-type-btn active" data-type="Retail">
+                🛍️ Retail Enquiry
+              </button>
+              <button type="button" class="order-type-btn" data-type="Bulk">
+                🏨 Bulk / HORECA Enquiry
+              </button>
+            </div>
+            <input type="hidden" id="enquiry-type-input" name="enquiry_type" value="Retail">
+          </div>
+
+          <div id="enquiry-selected-items" style="margin-bottom:2rem;">
+            <p class="enq-label" style="margin-bottom:.6rem; font-weight:700;">Selected Products</p>
+            <div id="enquiry-items-pills" style="display:flex; flex-wrap:wrap; gap:.5rem; min-height:2.5rem; padding:.75rem; background:#fff; border:2px solid var(--cocoa); border-radius:var(--radius);">
+
+              <span style="opacity:.45; font-size:.88rem; align-self:center;">No products selected yet — <a href="cart.html" style="color:var(--pink-ink);">go back to cart</a></span>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1.75rem;">
+            <p class="enq-label" style="margin-bottom:1rem; font-weight:700; font-size:1.05rem; border-bottom:2px solid var(--cocoa); padding-bottom:.5rem;">Contact Details</p>
+
+            <div class="form-row" style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.25rem;">
+              <div>
+                <label class="enq-label" for="enq-name">Full Name <span aria-hidden="true" style="color:var(--pink-ink);">*</span></label>
+                <input class="enq-input" type="text" id="enq-name" name="name" placeholder="Your full name" required autocomplete="name">
+                <div class="enq-error" id="err-name" role="alert" aria-live="polite"></div>
+              </div>
+              <div>
+                <label class="enq-label" for="enq-phone">Phone Number <span aria-hidden="true" style="color:var(--pink-ink);">*</span></label>
+                <input class="enq-input" type="tel" id="enq-phone" name="phone" placeholder="+91 XXXXX XXXXX" required autocomplete="tel">
+                <div class="enq-error" id="err-phone" role="alert" aria-live="polite"></div>
+              </div>
+            </div>
+
+            <div style="margin-bottom:1.25rem;">
+              <label class="enq-label" for="enq-email">Business Email <span aria-hidden="true" style="color:var(--pink-ink);">*</span></label>
+              <input class="enq-input" type="email" id="enq-email" name="email" placeholder="you@yourcompany.com" required autocomplete="email">
+              <div class="enq-error" id="err-email" role="alert" aria-live="polite"></div>
+            </div>
+
+            <div style="margin-bottom:1.25rem;">
+              <label class="enq-label" for="enq-company">Company / Business Name <span aria-hidden="true" style="color:var(--pink-ink);">*</span></label>
+              <input class="enq-input" type="text" id="enq-company" name="company" placeholder="Your company name" required autocomplete="organization">
+              <div class="enq-error" id="err-company" role="alert" aria-live="polite"></div>
+            </div>
+
+            <div class="form-row" style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.25rem;">
+              <div>
+                <label class="enq-label" for="enq-city">City</label>
+                <input class="enq-input" type="text" id="enq-city" name="city" placeholder="Your city" autocomplete="address-level2">
+                <div class="enq-error" id="err-city" role="alert" aria-live="polite"></div>
+              </div>
+              <div>
+                <label class="enq-label" for="enq-state">State</label>
+                <input class="enq-input" type="text" id="enq-state" name="state" placeholder="State / UT" autocomplete="address-level1">
+                <div class="enq-error" id="err-state" role="alert" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1.75rem;">
+            <p class="enq-label" style="margin-bottom:1rem; font-weight:700; font-size:1.05rem; border-bottom:2px solid var(--cocoa); padding-bottom:.5rem;">Volume &amp; Frequency</p>
+
+            <div class="form-row" style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.25rem;">
+              <div>
+                <label class="enq-label" for="enq-volume">Monthly Volume (approx.)</label>
+                <select class="enq-select" id="enq-volume" name="monthly_volume">
+                  <option value="" disabled selected>Select monthly volume</option>
+                  <option value="under-50l">Under 50 litres</option>
+                  <option value="50-200l">50 – 200 litres</option>
+                  <option value="200-500l">200 – 500 litres</option>
+                  <option value="500-1000l">500 L – 1,000 litres</option>
+                  <option value="1000-5000l">1,000 – 5,000 litres</option>
+                  <option value="over-5000l">Over 5,000 litres</option>
+                </select>
+              </div>
+              <div>
+                <label class="enq-label" for="enq-frequency">Delivery Frequency</label>
+                <select class="enq-select" id="enq-frequency" name="delivery_frequency">
+                  <option value="" disabled selected>Select frequency</option>
+                  <option value="daily">Daily</option>
+                  <option value="twice-weekly">Twice a week</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="fortnightly">Fortnightly</option>
+                  <option value="monthly">Monthly</option>
+                  <option value="one-time">One-time / Event</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1.75rem;">
+            <label class="enq-label" for="enq-message">Additional Requirements</label>
+            <textarea class="enq-textarea" id="enq-message" name="message" rows="4" placeholder="Tell us about any specific product requirements, custom flavours, packaging needs, or event details…"></textarea>
+          </div>
+
+          <input type="text" name="website" style="display:none;" tabindex="-1" aria-hidden="true" autocomplete="off">
+
+          <div style="margin-bottom:1.75rem;">
+            <label style="display:flex; align-items:flex-start; gap:.75rem; cursor:pointer;">
+              <input type="checkbox" id="enq-consent" name="consent" required style="width:1.1rem; height:1.1rem; margin-top:.15rem; accent-color:var(--pink-ink); flex-shrink:0;">
+              <span style="font-size:.9rem; line-height:1.5; opacity:.85;">
+                I consent to Pink Ice Cream storing this information and using it to respond to my commercial enquiry. No pricing is committed by submitting this form. I understand I may be contacted by a sales representative.
+              </span>
+            </label>
+            <div class="enq-error" id="err-consent" role="alert" aria-live="polite"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%; justify-content:center;">
+            Submit Enquiry →
+          </button>
+
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-dot"></span>
+            <span data-brand-name>Pink Ice Cream</span>
+          </a>
+          <p>
+            Industrial ice cream manufacturer &amp; cold-chain distribution network. Delivering consistency, volume security, and premium dairy quality to commercial partners across India.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Product Range</a></li>
+            <li><a href="capacity.html">Capacity &amp; Fleet</a></li>
+            <li><a href="about.html">About &amp; Certifications</a></li>
+            <li><a href="contact.html">RFQ &amp; Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Commercial</h4>
+          <ul>
+            <li><a href="products.html#bulk">Bulk Catering 5L &amp; 10L</a></li>
+            <li><a href="capacity.html#coverage">Distribution Hubs</a></li>
+            <li><a href="about.html#quality">Quality &amp; Lab Standards</a></li>
+            <li><a href="contact.html#sample-request">Request Tasting Kit</a></li>
+            <li><a href="contact.html#dealer">Become a Distributor</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Headquarters</h4>
+          <p style="font-size: 0.88rem; line-height: 1.5; margin-bottom: 0.5rem;" data-config-address>
+            Plot 42, Food Park Phase II, Industrial Area, Gujarat 390001, India
+            <span class="review-tag">[sample – client to confirm]</span>
+          </p>
+          <p style="font-size: 0.85rem; margin-bottom: 0.3rem;">Phone: <span data-config-phone>+91 XXXXX XXXXX</span> <span class="review-tag">[sample]</span></p>
+          <p style="font-size: 0.85rem; margin-bottom: 0.3rem;">Email: <span data-config-email>supply@pinkicecream.in</span> <span class="review-tag">[sample]</span></p>
+          <p style="font-size: 0.85rem;" data-config-hours>Mon – Sat: 08:00 – 20:00 IST</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 <span data-brand-name>Pink Ice Cream</span> Ltd. Commercial Supply Division. All rights reserved.</div>
+        <div class="concept-note">Images are concept visuals for design preview. Replace with real photos before launch.</div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="whatsapp-float-btn" class="whatsapp-float" aria-label="Contact us on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.08c-1.49 0-2.95-.4-4.22-1.16l-.3-.18-3.13.82.84-3.05-.2-.31a8.13 8.13 0 0 1-1.25-4.29c0-4.51 3.67-8.18 8.18-8.18 2.19 0 4.24.85 5.79 2.4 1.54 1.55 2.4 3.6 2.4 5.79 0 4.51-3.67 8.18-8.18 8.18zm4.49-6.13c-.25-.12-1.46-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.65.81-.8 1-.15.19-.3.21-.55.08-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.73-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.08 0 1.23.9 2.42 1.02 2.59.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.59.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/>
+    </svg>
+  </button>
+  <div id="wa-dialog" class="wa-dialog" role="dialog" aria-modal="true" aria-labelledby="wa-modal-title">
+    <div class="wa-dialog-box">
+      <button id="wa-dialog-close" class="wa-dialog-close" aria-label="Close dialog">&times;</button>
+      <h3 id="wa-modal-title">WhatsApp Commercial Desk</h3>
+      <p style="font-size:0.9rem; margin-bottom: 0.75rem; color: rgba(59,31,43,0.7);">
+        Direct WhatsApp message prepared with your selected products:
+      </p>
+      <div id="wa-message-text" class="wa-message-box"></div>
+      <div class="wa-dialog-actions">
+        <button id="wa-copy-btn" class="btn btn-primary btn-sm">Copy Message</button>
+        <a href="contact.html#rfq-form" class="btn btn-outline btn-sm">Open Full RFQ Form</a>
+      </div>
+      <div class="wa-note">
+        Set client sales WhatsApp number in <code>CONFIG.whatsappNumber</code>.
+      </div>
+    </div>
+  </div>
+
+  <aside id="quote-panel" class="quote-panel" aria-label="Quote List Drawer">
+    <div class="quote-panel-header">
+      <h3>Your Commercial Quote List</h3>
+      <button id="quote-panel-close" class="quote-panel-close" aria-label="Close Quote Panel">&times;</button>
+    </div>
+    <div id="quote-panel-items" class="quote-panel-body"></div>
+    <div class="quote-panel-footer">
+      <button id="quote-checkout-btn" class="btn btn-primary" style="width:100%; justify-content:center;">
+        Proceed to RFQ Form &rarr;
+      </button>
+    </div>
+  </aside>
+
+  <div id="product-modal-overlay" class="product-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-product-name">
+    <div class="product-modal" id="product-modal-box">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close product details">×</button>
+      <div class="modal-img-side">
+        <img id="modal-img" src="" alt="" width="460" height="460">
+      </div>
+      <div class="modal-content-side">
+        <span class="modal-category-badge section-label" id="modal-category"></span>
+        <h2 class="modal-product-name" id="modal-product-name"></h2>
+        <p class="modal-desc" id="modal-desc"></p>
+        <div class="modal-qty-row">
+          <span class="modal-qty-label">Quantity:</span>
+          <div class="qty-stepper">
+            <button class="qty-btn" id="qty-minus" aria-label="Decrease quantity">−</button>
+            <input class="qty-input" type="number" id="qty-input" value="1" min="1" max="99" aria-label="Quantity">
+            <button class="qty-btn" id="qty-plus" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-primary" id="modal-add-btn">Add to Enquiry</button>
+          <button class="btn btn-outline" id="modal-close-btn2">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
